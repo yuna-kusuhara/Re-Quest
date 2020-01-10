@@ -1,3 +1,68 @@
 * {
   box-sizing: border-box;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.header {
+  width: 100vw;
+  background-color: lightgreen;
+  &__contents{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    &--title{
+      margin-left: 10px;
+      flex-grow: 1;
+    }
+    &--login{
+      margin: 10px;
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+}
+
+.sidebar {
+  height: calc(100vh - 50px - 50px);
+  width: 150px;
+  background-color: green;
+  &__my-area {
+    height: 50%;
+    background-color: lightyellow;
+  }
+  &__task-area {
+    height: 50%;
+    background-color: whitesmoke;
+  }
+  &__request--name {
+
+  }
+  &__request--limit {
+
+  }
+  &__request--message {
+
+  }
+}
+
+.main {
+  background-color: lightgoldenrodyellow;
+  width: calc(100% - 150px);
+}
+
+.footer {
+  width: 100vw;
+  &__contents {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    &-btn {
+      text-align: center;
+      flex-grow: 1;
+    }
+  }
 }
