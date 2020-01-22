@@ -1,25 +1,7 @@
-.header
-  .header__contents
-    .header__contents--title ReQuest
-    .header__contents--login
-      = link_to('ログイン', new_user_session_path)
-    .header__contents--logout
-      = link_to('ログアウト', destroy_user_session_path)
-    .header__contents--new
-      = link_to('新規登録', new_user_registration_path)
+= render "shared/header.html.haml"
 
 .wrapper
-  .sidebar
-    .sidebar__my-area
-      .sidebar__my-request
-        .sidebar__request--name 渋谷〇〇の限定スイーツ
-        .sidebar__request--limit 期限：2020/1/30
-        .sidebar__request--message test1
-    .sidebar__task-area
-      .sidebar__task-request
-        .sidebar__request--name 渋谷〇〇の限定スイーツ
-        .sidebar__request--limit 期限：2020/1/30
-        .sidebar__request--message test2
+  = render "shared/sidebar.html.haml"
 
   .main
     .main__request
@@ -28,8 +10,4 @@
       .main__request--location 場所：渋谷
       .main__request--limit 期限：2020/1/30
 
-.footer
-  .footer__contents
-    .footer__contents-btn HOME
-    .footer__contents-btn REQUEST
-    .footer__contents-btn MESSAGE
+= render "shared/footer.html.haml"

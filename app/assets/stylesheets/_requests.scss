@@ -8,6 +8,7 @@
 .header {
   width: 100vw;
   background-color: lightgreen;
+  padding-right: 10px;
   &__contents{
     height: 50px;
     display: flex;
@@ -17,10 +18,10 @@
       flex-grow: 1;
     }
     &--login{
-      margin: 10px;
+      margin-right: 10px;
     }
     &--logout{
-      margin: 10px;
+      margin-right: 10px;
     }
   }
 }

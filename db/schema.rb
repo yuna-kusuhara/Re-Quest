@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200113041231) do
+ActiveRecord::Schema.define(version: 20200122050402) do
+
+  create_table "request_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "request_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_request_users_on_request_id", using: :btree
+    t.index ["user_id"], name: "index_request_users_on_user_id", using: :btree
+  end
+
+  create_table "requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",                   null: false
+    t.string   "item",                    null: false
+    t.integer  "price",                   null: false
+    t.string   "location",                null: false
+    t.date     "datelimit",               null: false
+    t.string   "image"
+    t.string   "map_url"
+    t.integer  "create_user",             null: false
+    t.integer  "status_flag", default: 0, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                null: false
@@ -26,4 +49,6 @@ ActiveRecord::Schema.define(version: 20200113041231) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "request_users", "requests"
+  add_foreign_key "request_users", "users"
 end
