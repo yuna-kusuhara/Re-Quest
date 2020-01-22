@@ -4,10 +4,15 @@
   = render "shared/sidebar.html.haml"
 
   .main
-    .main__request
-      .main__request--name 渋谷〇〇の限定スイーツ
-      .main__request--reward 報酬金：¥3,000
-      .main__request--location 場所：渋谷
-      .main__request--limit 期限：2020/1/30
+    - @requests.each do |request|
+      .main__request
+        .main__request--name
+        = request.title
+        .main__request--reward
+          報酬金：¥#{request.price}
+        .main__request--location
+          場所：#{request.location}
+        .main__request--limit
+          期限：#{request.datelimit}
 
 = render "shared/footer.html.haml"

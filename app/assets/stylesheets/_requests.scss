@@ -56,6 +56,16 @@
 .main {
   background-color: lightgoldenrodyellow;
   width: calc(100% - 150px);
+  display: flex;
+  &__request {
+    height: 130px;
+    padding: 0.5em 1em;
+    margin: 10px;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  }
 }
 
 .footer {
