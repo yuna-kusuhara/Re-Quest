@@ -1,0 +1,38 @@
+= render "shared/header.html.haml"
+
+.request
+  %h1 New ReQuest
+  .request__form
+    = form_for @request do |f|
+      .request__topic
+        .request__topic--name
+          依頼名
+        = f.text_field :title, class: "request__topic--input"
+      .request__topic
+        .request__topic--name
+          依頼するアイテム
+        = f.text_field :item, class: "request__topic--input"
+      .request__topic
+        .request__topic--name
+          報酬金
+        = f.number_field :price, class: "request__topic--input"
+      .request__topic
+        .request__topic--name
+          入手場所
+        = f.text_field :location, class: "request__topic--input"
+      .request__topic
+        .request__topic--name
+          期限
+        = f.date_field :datelimit, class: "request__topic--input"
+      .request__topic
+        .request__topic--name
+          画像※任意
+        = f.text_field :image, class: "request__topic--input"
+      .request__topic
+        .request__topic--name
+          マップ※任意
+        = f.text_field :map_url, class: "request__topic--input"
+      -# = f.hidden_field :create_user, :value => current_user.id 
+      -# = f.hidden_field :status_flag, :value => 0
+      = f.submit "ReQuestを発行する", name: "commit"
+= render "shared/footer.html.haml"

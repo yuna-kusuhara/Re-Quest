@@ -1,0 +1,18 @@
+= render "shared/header.html.haml"
+
+.wrapper
+  = render "shared/sidebar.html.haml"
+
+  .main
+    - @requests.each do |request|
+      = link_to "/requests/#{request.id}/messages", class: "main__request" do
+        .main__request--name
+        = request.title
+        .main__request--reward
+          報酬金：¥#{request.price}
+        .main__request--location
+          場所：#{request.location}
+        .main__request--limit
+          期限：#{request.datelimit}
+
+= render "shared/footer.html.haml"
