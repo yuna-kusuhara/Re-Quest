@@ -9,19 +9,21 @@
 .messages_area
   - @messages.each do |message|
     - if message.user_id == current_user.id
-      .master-message
-        .master-message__info
-          .master-message__info--user= message.user.name
-          .master-message__info--datetime= message.created_at
-        .master-message__text= message.text
-        = image_tag message.image.url, class: ".master-message__image" if message.image.present?
-      <br>
+      .align-right
+        .master-message 
+          .master-message__info
+            .master-message__info--user= message.user.name
+            .master-message__info--datetime= message.created_at
+          .master-message__text= message.text
+          = image_tag message.image.url, class: ".master-message__image" if message.image.present?
     - else
       .message
-        .message__user
-        .message__datetime
-        .message__text
+        .message__info
+          .message__info--user= message.user.name
+          .message__info--datetime= message.created_at
+        .message__text= message.text
         = image_tag message.image.url, class: ".message__image" if message.image.present?
+      <br>
         
 .message-form
   = form_for [@request, @message] do |f|

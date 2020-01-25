@@ -8,11 +8,37 @@
   height: calc(100vh - 50px - 50px - 200px - 50px);
   padding: 5px 40px;
   background-color: lightskyblue;
-  // display: flex;
-  // flex-direction: column;
+}
+
+.align-right {
+  text-align: right;
 }
 
 .master-message {
+  padding: 5px 10px;
+  // margin-top: 5px;
+  // margin-bottom: 10px;
+  margin: 5px 0 10px auto;
+  position: relative;
+  color: white;
+  background: #2fbeb5;
+  display: inline-block;
+  &::after{
+    position: absolute;
+    content: '';
+    top: 10px;
+    left: -20px;
+    border: 10px solid transparent;
+    border-right: 10px solid #2fbeb5;
+    width: 0;
+    height: 0;
+  }
+  &__info {
+    display: flex;
+  }
+}
+
+.message {
   padding: 5px 10px;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -34,6 +60,7 @@
     display: flex;
   }
 }
+
 .message-form {
   height: 50px;
   width: 100%;
