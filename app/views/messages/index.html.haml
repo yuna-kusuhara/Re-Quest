@@ -8,19 +8,23 @@
     %p 期限：#{@request.datelimit}
 .messages_area
   - @messages.each do |message|
-    - if message.user_id == cerrent_user.id
+    - if message.user_id == current_user.id
       .master-message
-        .master-message__user
-        .master-message__datetime
-        .master-message__text
+        .master-message__info
+          .master-message__info--user= message.user.name
+          .master-message__info--datetime= message.created_at
+        .master-message__text= message.text
+        = image_tag message.image.url, class: ".master-message__image" if message.image.present?
+      <br>
     - else
       .message
         .message__user
         .message__datetime
         .message__text
+        = image_tag message.image.url, class: ".message__image" if message.image.present?
         
 .message-form
-  = form_for @message, url: "/requests/#{@request.id}/messages" do |f|
+  = form_for [@request, @message] do |f|
     = f.text_field :text, class: ".message-form__text"
     = f.file_field :image, class: ".message-form__image"
     = f.submit "送信", name: "commit", class: ".message-form__submit"
