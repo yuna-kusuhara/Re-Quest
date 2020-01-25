@@ -1,0 +1,28 @@
+= render "shared/header.html.haml"
+
+.request_index
+  %h1=@request.title
+  %h2
+    %p 報酬金：¥#{@request.price}
+    %p 場所：#{@request.location}
+    %p 期限：#{@request.datelimit}
+.messages_area
+  - @messages.each do |message|
+    - if message.user_id == cerrent_user.id
+      .master-message
+        .master-message__user
+        .master-message__datetime
+        .master-message__text
+    - else
+      .message
+        .message__user
+        .message__datetime
+        .message__text
+        
+.message-form
+  = form_for @message, url: "/requests/#{@request.id}/messages" do |f|
+    = f.text_field :text, class: ".message-form__text"
+    = f.file_field :image, class: ".message-form__image"
+    = f.submit "送信", name: "commit", class: ".message-form__submit"
+
+= render "shared/footer.html.haml"

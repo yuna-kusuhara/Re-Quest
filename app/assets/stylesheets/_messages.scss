@@ -1,0 +1,26 @@
+.request_index {
+  height: 200px;
+  padding: 15px;
+  background-color: lightgoldenrodyellow;
+}
+
+.messages_area{
+  height: calc(100vh - 50px - 50px - 200px - 50px);
+  padding: 0 15px;
+  background-color: lightskyblue;
+}
+
+.message-form {
+  height: 50px;
+  width: 100%;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  background-color: cadetblue;
+  &__text {
+    flex-grow: 1;
+  }
+  &__submit {
+    height: 50px;
+  }
+}

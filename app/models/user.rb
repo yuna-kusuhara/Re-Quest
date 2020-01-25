@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :request_users
   has_many :requests, through: :request_users
+  has_many :messages
 
 end

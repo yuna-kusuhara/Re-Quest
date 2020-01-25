@@ -5,7 +5,7 @@
 
   .main
     - @requests.each do |request|
-      .main__request
+      = link_to "/requests/#{request.id}/messages", class: "main__request" do
         .main__request--name
         = request.title
         .main__request--reward

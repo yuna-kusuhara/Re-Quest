@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200122050402) do
+ActiveRecord::Schema.define(version: 20200123144000) do
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "text"
+    t.string   "image"
+    t.integer  "request_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_messages_on_request_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+  end
 
   create_table "request_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "request_id"
@@ -49,6 +60,8 @@ ActiveRecord::Schema.define(version: 20200122050402) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "messages", "requests"
+  add_foreign_key "messages", "users"
   add_foreign_key "request_users", "requests"
   add_foreign_key "request_users", "users"
 end
