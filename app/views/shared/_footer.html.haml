@@ -3,5 +3,6 @@
     .footer__contents-btn
       = link_to("HOME", root_path)
     .footer__contents-btn
-      = link_to("REQUEST",  new_request_path)
+      - if user_signed_in?
+        = link_to("REQUEST",  new_user_request_path(current_user.id))
     .footer__contents-btn MYPAGE

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200123144000) do
+ActiveRecord::Schema.define(version: 20200201101453) do
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
@@ -25,11 +25,10 @@ ActiveRecord::Schema.define(version: 20200123144000) do
 
   create_table "request_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "request_id"
-    t.integer  "user_id"
+    t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["request_id"], name: "index_request_users_on_request_id", using: :btree
-    t.index ["user_id"], name: "index_request_users_on_user_id", using: :btree
   end
 
   create_table "requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -40,10 +39,11 @@ ActiveRecord::Schema.define(version: 20200123144000) do
     t.date     "datelimit",               null: false
     t.string   "image"
     t.string   "map_url"
-    t.integer  "create_user",             null: false
+    t.integer  "user_id"
     t.integer  "status_flag", default: 0, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.index ["user_id"], name: "fk_rails_8ead8b1e6b", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,5 +63,5 @@ ActiveRecord::Schema.define(version: 20200123144000) do
   add_foreign_key "messages", "requests"
   add_foreign_key "messages", "users"
   add_foreign_key "request_users", "requests"
-  add_foreign_key "request_users", "users"
+  add_foreign_key "requests", "users"
 end

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :request_users
-  has_many :requests, through: :request_users
+  has_many :requests
   has_many :messages
 
 end
