@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  before_action :set_user, only: [:new, :create]
   before_action :set_request, only: [:edit, :update]
 
   def index
@@ -10,7 +11,7 @@ class RequestsController < ApplicationController
   end
 
   def create
-    Request.create(request_params)
+    @user.requests.create(request_params)
     redirect_to root_path
   end
 
@@ -24,7 +25,11 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:title, :item, :price, :location, :datelimit, :image, :map_irl).merge(create_user: current_user.id)
+    params.require(:request).permit(:title, :item, :price, :location, :datelimit, :image, :map_irl)
+  end
+
+  def set_user
+    @user = current_user
   end
 
   def set_request

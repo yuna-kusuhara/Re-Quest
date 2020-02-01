@@ -3,7 +3,7 @@
 .request
   %h1 New ReQuest
   .request__form
-    = form_for @request do |f|
+    = form_for [@user, @request] do |f|
       .request__topic
         .request__topic--name
           依頼名
