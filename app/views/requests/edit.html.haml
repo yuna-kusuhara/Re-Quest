@@ -1,0 +1,10 @@
+= render "shared/header.html.haml"
+
+= form_for @request do |f|
+  %input{name: "request[user_ids]", type: "hidden", value: current_user.id}
+  - @users.each do |u|
+    = f.radio_button :user_ids, u.user.id
+    = u.user.name
+  = f.submit "確定", name: "update"
+
+= render "shared/footer.html.haml"
