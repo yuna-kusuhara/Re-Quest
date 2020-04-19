@@ -2,6 +2,11 @@
   height: 150px;
   padding: 15px;
   background-color: lightgoldenrodyellow;
+  font-size: 12px;
+  display: flex;
+  &__apply {
+    margin-left: 10px;
+  }
 }
 
 .messages_area{

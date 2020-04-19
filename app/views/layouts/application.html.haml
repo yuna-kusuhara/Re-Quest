@@ -4,10 +4,11 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title ReQuest
     = csrf_meta_tags
-    -# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag    'application', media: 'all'
-    -# = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    %script(src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_PLATFORM_KEY"]}&callback=initMap" async defer)
     = javascript_include_tag 'application'
+    = include_gon
   %body
     %p.notice
     %p.alert

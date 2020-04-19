@@ -4,5 +4,5 @@
       = link_to("HOME", root_path)
     .footer__contents-btn
       - if user_signed_in?
-        = link_to("REQUEST",  new_user_request_path(current_user.id))
+        = link_to("NEW-MAP",  new_map_path)
     .footer__contents-btn MYPAGE

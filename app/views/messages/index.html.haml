@@ -9,8 +9,8 @@
   - if @request.user_id == current_user.id
     .request_index__edit
       = link_to('依頼相手を決める', edit_request_path(@request))
-    .request_index__apply
-      = link_to('このリクエストに応募する', new_request_request_user_path(@request))
+  .request_index__apply
+    = link_to('このリクエストに申し込む', new_request_request_user_path(@request))
 .messages_area
   - @messages.each do |message|
     - if message.user_id == current_user.id
