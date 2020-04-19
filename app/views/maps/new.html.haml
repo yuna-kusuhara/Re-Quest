@@ -1,0 +1,16 @@
+= render "shared/header.html.haml"
+
+= form_for @map do |f|
+  タイトル
+  = f.text_field :title
+  一言コメント
+  = f.text_field :coment
+  .mapSearch__number
+    = f.number_field :latitude, id: "mapLat", step: "0.000000000000001"
+    = f.number_field :longitude, id: "mapLng", step: "0.000000000000001"
+  = text_field_tag "address", "", id: "address"
+  = button_tag "検索", id: "mapSearchBtn"
+  #map
+  = f.submit "登録"
+
+= render "shared/footer.html.haml"

@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :request_users, only: [:new, :create]
   end
 
+  resources :maps, only: [:new, :create, :index, :show]
+
 end
