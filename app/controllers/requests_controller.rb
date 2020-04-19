@@ -4,6 +4,7 @@ class RequestsController < ApplicationController
 
   def index
     @requests = Request.all
+    @maps = Map.all
   end
 
   def new

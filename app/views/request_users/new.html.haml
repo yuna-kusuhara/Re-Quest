@@ -1,0 +1,14 @@
+= render "shared/header.html.haml"
+
+.request_index
+  %h1=@request.title
+  %h2
+    %p 報酬金：¥#{@request.price}
+    %p 場所：#{@request.location}
+    %p 期限：#{@request.datelimit}
+.request_apply
+  ※申し込み後のキャンセルは出来ません
+
+
+
+= render "shared/footer.html.haml"
