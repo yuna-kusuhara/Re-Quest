@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: re-quest_production
-  username: re-quest
-  password: <%= ENV['RE-QUEST_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
