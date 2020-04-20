@@ -1,22 +1,29 @@
 = render "shared/header.html.haml"
 
 .wrapper
-  = render "shared/sidebar.html.haml"
-
+  -# = render "shared/sidebar.html.haml"
   .main
-    - @requests.each do |request|
-      = link_to "/requests/#{request.id}/messages", class: "main__request" do
-        .main__request--name
-          = request.title
-        .main__request--reward
-          報酬金：¥#{request.price}
-        .main__request--location
-          場所：#{request.location}
-        .main__request--limit
-          期限：#{request.datelimit}
-    - @maps.each do |map|
-      = link_to "/maps/#{map.id}", class: "main__request" do
-        .main__request--name
-          = map.title
+    .main__title
+      グーグルマップ登録一覧
+    -# - @requests.each do |request|
+    -#   = link_to "/requests/#{request.id}/messages", class: "main__request" do
+    -#     .main__request--name
+    -#       = request.title
+    -#     .main__request--reward
+    -#       報酬金：¥#{request.price}
+    -#     .main__request--location
+    -#       場所：#{request.location}
+    -#     .main__request--limit
+    -#       期限：#{request.datelimit}
+    .main__content
+      - @maps.each do |map|
+        = link_to "/maps/#{map.id}", class: "main__googleMap" do
+          .main__request--name
+            タイトル：
+            = map.title
+          %br
+          .main__request--name
+            %p 一言コメント
+            = map.coment
 
 = render "shared/footer.html.haml"

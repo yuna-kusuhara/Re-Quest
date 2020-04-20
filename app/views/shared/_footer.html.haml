@@ -1,8 +1,7 @@
 .footer
   .footer__contents
     .footer__contents-btn
-      = link_to("HOME", root_path)
+      = link_to("トップ", root_path)
     .footer__contents-btn
-      - if user_signed_in?
-        = link_to("NEW-MAP",  new_map_path)
-    .footer__contents-btn MYPAGE
+      = link_to("グーグルマップで地図登録",  new_map_path)
+    -# .footer__contents-btn MYPAGE
